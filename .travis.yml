@@ -5,6 +5,8 @@
 # Travis language: c(sharp) :-P
 language: csharp
 
+sudo: required
+
 before_install:
  - date -u
  - uname -a
@@ -25,6 +27,7 @@ script:
 branches:
   only:
     - master
+    - /^lua-.*$/
 
 # Notify if needed
 notifications:
