@@ -340,8 +340,8 @@ end
 			if (! CheckNull.IsNull(luaState)) {
 				lock (translatorPoolLock)
 				{
-					LuaCore.LuaClose (luaState);
 					ObjectTranslatorPool.Instance.Remove (luaState);
+					LuaCore.LuaClose (luaState);
 				}
 			}
 		}
