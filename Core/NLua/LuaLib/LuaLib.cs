@@ -342,13 +342,17 @@ namespace NLua
 			LuaCore.LuaAtPanic (luaState, (LuaNativeFunction)panicf);
 		}
 
-
 		public static void LuaPushNumber (LuaState luaState, double number)
 		{
 			LuaCore.LuaPushNumber (luaState, number);
-		}
+        }
 
-		public static void LuaPushBoolean (LuaState luaState, bool value)
+        public static void LuaPushInteger(LuaState luaState, long value)
+        {
+            LuaCore.LuaPushInteger(luaState, value);
+        }
+
+        public static void LuaPushBoolean (LuaState luaState, bool value)
 		{
 			LuaCore.LuaPushBoolean (luaState, value ? 1 : 0);
 		}

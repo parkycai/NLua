@@ -974,13 +974,16 @@ namespace NLua
 			if (o == null)
 				LuaLib.LuaPushNil (luaState);
 			else if (o is sbyte || o is byte || o is short || o is ushort ||
-			         o is int || o is uint || o is long || o is float ||
-			         o is ulong || o is decimal || o is double) {
-				double d = Convert.ToDouble (o);
-				LuaLib.LuaPushNumber (luaState, d);
+					o is int || o is uint || o is long ||
+					o is ulong || o is decimal) {
+				long i = Convert.ToInt64(o);
+				LuaLib.LuaPushInteger(luaState, i);
+			} else if (o is float || o is double) {
+				double d = Convert.ToDouble(o);
+				LuaLib.LuaPushNumber(luaState, d);
 			} else if (o is char) {
-				double d = (char)o;
-				LuaLib.LuaPushNumber (luaState, d);
+				int n = (char)o;
+				LuaLib.LuaPushNumber (luaState, n);
 			} else if (o is string) {
 				string str = (string)o;
 				LuaLib.LuaPushString (luaState, str);
